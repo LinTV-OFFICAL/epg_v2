@@ -10,35 +10,32 @@ UPD 22.07.2025: теперь во всех источниках epg исполь
 
 ---
 
-# 🔄 Обновлено: 2025-09-04 01:42 UTC
+# 🔄 Обновлено: 2025-09-05 01:44 UTC
 
 **1. основной файл EPG.ONE с прямоугольными пиконами с прозрачным фоном**
 
-**Размер:** 43.09 MB
-
-**Ссылка для плеера (GitHub Raw):**
-`https://raw.githubusercontent.com/Lorax121/epg_v2/main/data/epg2.xml.gz`
+**Статус:** ❌ Ошибка
+**Источник:** `http://epg.one/epg2.xml.gz`
+**Причина:** Ошибка загрузки: HTTPConnectionPool(host='epg.one', port=80): Max retries exceeded with url: /epg2.xml.gz (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f0eff535590>, 'Connection to epg.one timed out. (connect timeout=45)'))
 
 ---
 **2. основной файл EPG.ONE с квадратными пиконами с темным фоном**
 
-**Размер:** 43.09 MB
-
-**Ссылка для плеера (GitHub Raw):**
-`https://raw.githubusercontent.com/Lorax121/epg_v2/main/data/epg.xml.gz`
+**Статус:** ❌ Ошибка
+**Источник:** `http://epg.one/epg.xml.gz`
+**Причина:** Ошибка загрузки: HTTPConnectionPool(host='epg.one', port=80): Max retries exceeded with url: /epg.xml.gz (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f0efedcb210>, 'Connection to epg.one timed out. (connect timeout=45)'))
 
 ---
 **3. облегченный файл EPG.ONE с квадратными пиконами с темным фоном**
 
-**Размер:** 9.69 MB
-
-**Ссылка для плеера (GitHub Raw):**
-`https://raw.githubusercontent.com/Lorax121/epg_v2/main/data/epg.xml`
+**Статус:** ❌ Ошибка
+**Источник:** `http://epg.one/epg.xml`
+**Причина:** Ошибка загрузки: HTTPConnectionPool(host='epg.one', port=80): Max retries exceeded with url: /epg.xml (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f0efedd0850>, 'Connection to epg.one timed out. (connect timeout=45)'))
 
 ---
 **4. облегченный файл iptvx.one (архив на 14 дней / без описаний)**
 
-**Размер:** 22.0 MB
+**Размер:** 21.18 MB
 
 **Ссылка для плеера (GitHub Raw):**
 `https://raw.githubusercontent.com/Lorax121/epg_v2/main/data/EPG_LITE.xml.gz`
