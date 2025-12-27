@@ -101,43 +101,35 @@ def clear_directory(dir_path: Path):
         dir_path.mkdir(parents=True, exist_ok=True)
 
 def download_one(entry):
-    """Скачивает один EPG файл с улучшенным отображением прогресса."""
+    """Скачивает один EPG файл БЕЗ лишнего спама в логи."""
     url, desc = entry['url'], entry['desc']
     temp_path = DATA_DIR / ("tmp_" + os.urandom(4).hex())
     result = {'entry': entry, 'error': None}
     
     try:
         print(f"🔄 Загружаю: {desc}")
-        print(f"   URL: {url}")
+        # print(f"   URL: {url}") # Можно закомментировать, чтобы лог был еще чище
         
         with requests.get(url, stream=True, timeout=REQUEST_TIMEOUT) as r:
             r.raise_for_status()
-            total_size = int(r.headers.get('content-length', 0))
-            downloaded = 0
+            # Убрали total_size и downloaded, они здесь больше не нужны для принта
             
             with open(temp_path, 'wb') as f:
-                last_progress_time = time.time()
                 for chunk in r.iter_content(32 * 1024):  
                     if timeout_handler.timeout_occurred:
                         raise TimeoutError("Операция прервана по таймауту")
                     
                     f.write(chunk)
-                    downloaded += len(chunk)
-                    
-                    current_time = time.time()
-                    if current_time - last_progress_time >= 5:
-                        if total_size > 0:
-                            progress = (downloaded / total_size) * 100
-                            print(f"   Прогресс: {progress:.1f}% ({downloaded / (1024*1024):.1f} MB / {total_size / (1024*1024):.1f} MB)")
-                        else:
-                            print(f"   Загружено: {downloaded / (1024*1024):.1f} MB")
-                        last_progress_time = current_time
+                    # ЗДЕСЬ НЕ ДОЛЖНО БЫТЬ НИКАКИХ PRINT!
         
+        # Файл закрыт, теперь проверяем размер
         size_bytes = temp_path.stat().st_size
         if size_bytes == 0:
             raise ValueError("Файл пустой.")
             
         size_mb = round(size_bytes / (1024 * 1024), 2)
+        
+        # Единственный принт по завершении загрузки
         print(f"✅ Загружено: {desc} ({size_mb} MB)")
         
         result.update({'size_mb': size_mb, 'temp_path': temp_path})
