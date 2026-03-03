@@ -1,4 +1,4 @@
-# .github/workflows/daily_update.yml
+# .github/workflows/epg.yml
 name: EPG Data Update
 
 on:
