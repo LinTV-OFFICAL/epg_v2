@@ -3,6 +3,6 @@
     {
       "url": "http://epg.one/epg2.xml",
       "desc": "упрощенный EPG с прямоугольными иконками с прозрачным фоном"
-  ],
+    },
   "notes": "EPG FOR LinIPTV"
 }
